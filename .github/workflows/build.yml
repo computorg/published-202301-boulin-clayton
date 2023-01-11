@@ -10,6 +10,7 @@ env:
 
 jobs:
   computorticle:
+    if: "!contains(github.event.head_commit.message, 'skip build')"
     runs-on: ubuntu-latest
 
     steps:

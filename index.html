@@ -628,9 +628,10 @@ C(\textbf{u}) = \exp \left( - \ell(-\ln(u_0), \dots, -\ln(u_{d-1})) \right), \qu
 <details open="">
 <summary>Hide/Show the code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> gauss_function(x, x0, sigma):</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> np.sqrt(<span class="fl">1.</span> <span class="op">/</span> (<span class="dv">2</span><span class="op">*</span>np.pi <span class="op">*</span> sigma<span class="op">**</span><span class="dv">2</span>)) <span class="op">*</span> np.exp(<span class="op">-</span>(x <span class="op">-</span> x0) <span class="op">**</span> <span class="dv">2</span> <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> sigma<span class="op">**</span><span class="dv">2</span>))</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  n_samples <span class="op">=</span> <span class="dv">512</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  theta, psi1, psi2 <span class="op">=</span> <span class="dv">10</span>, <span class="fl">0.1</span>, <span class="fl">1.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (np.sqrt(<span class="fl">1.</span> <span class="op">/</span> (<span class="dv">2</span><span class="op">*</span>np.pi <span class="op">*</span> sigma<span class="op">**</span><span class="dv">2</span>)) <span class="op">*</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>              np.exp(<span class="op">-</span>(x <span class="op">-</span> x0) <span class="op">**</span> <span class="dv">2</span> <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> sigma<span class="op">**</span><span class="dv">2</span>)))</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  n_samples <span class="op">=</span> <span class="dv">512</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  theta, psi1, psi2 <span class="op">=</span> <span class="dv">10</span>, <span class="fl">0.1</span>, <span class="fl">1.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>We choose the standard normal and exponential as margins. To simulate this sample, the following lines should be typed:</p>
@@ -701,7 +702,7 @@ C(\textbf{u}) = \exp \left( - \ell(-\ln(u_0), \dots, -\ln(u_{d-1})) \right), \qu
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(df_wmado[<span class="st">'scaled'</span>].var())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>0.015417245591834503
+<pre><code>0.015417245591834463
 0.01370549107120327</code></pre>
 </div>
 </div>
@@ -1538,188 +1539,189 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb18-316"><a href="#cb18-316" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-319"><a href="#cb18-319" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
 <span id="cb18-320"><a href="#cb18-320" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> gauss_function(x, x0, sigma):</span>
-<span id="cb18-321"><a href="#cb18-321" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> np.sqrt(<span class="fl">1.</span> <span class="op">/</span> (<span class="dv">2</span><span class="op">*</span>np.pi <span class="op">*</span> sigma<span class="op">**</span><span class="dv">2</span>)) <span class="op">*</span> np.exp(<span class="op">-</span>(x <span class="op">-</span> x0) <span class="op">**</span> <span class="dv">2</span> <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> sigma<span class="op">**</span><span class="dv">2</span>))</span>
-<span id="cb18-322"><a href="#cb18-322" aria-hidden="true" tabindex="-1"></a>  n_samples <span class="op">=</span> <span class="dv">512</span></span>
-<span id="cb18-323"><a href="#cb18-323" aria-hidden="true" tabindex="-1"></a>  theta, psi1, psi2 <span class="op">=</span> <span class="dv">10</span>, <span class="fl">0.1</span>, <span class="fl">1.0</span></span>
-<span id="cb18-324"><a href="#cb18-324" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-325"><a href="#cb18-325" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-326"><a href="#cb18-326" aria-hidden="true" tabindex="-1"></a>We choose the standard normal and exponential as margins. To simulate this sample, the following lines should be typed:</span>
-<span id="cb18-327"><a href="#cb18-327" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-330"><a href="#cb18-330" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb18-331"><a href="#cb18-331" aria-hidden="true" tabindex="-1"></a>  copula <span class="op">=</span> evd.AsyNegLog(theta<span class="op">=</span>theta, psi1<span class="op">=</span>psi1,</span>
-<span id="cb18-332"><a href="#cb18-332" aria-hidden="true" tabindex="-1"></a>                         psi2<span class="op">=</span>psi2, n_samples<span class="op">=</span>n_samples)</span>
-<span id="cb18-333"><a href="#cb18-333" aria-hidden="true" tabindex="-1"></a>  sample <span class="op">=</span> copula.sample(inv_cdf<span class="op">=</span>[norm.ppf, expon.ppf])</span>
-<span id="cb18-334"><a href="#cb18-334" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-335"><a href="#cb18-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-336"><a href="#cb18-336" aria-hidden="true" tabindex="-1"></a>The $1024 \times 2$ array $\texttt{sample}$ contains $1024$ realization of the $\textbf{asymmetric negative logistic}$ model where the first column is distributed according to a standard normal random variable and the second column as a standard exponential. This distribution is depicted below. To obtain it, one needs the following lines of command:</span>
-<span id="cb18-337"><a href="#cb18-337" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-340"><a href="#cb18-340" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb18-341"><a href="#cb18-341" aria-hidden="true" tabindex="-1"></a>  fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb18-342"><a href="#cb18-342" aria-hidden="true" tabindex="-1"></a>  ax.scatter(sample[:,<span class="dv">0</span>], sample[:,<span class="dv">1</span>],</span>
-<span id="cb18-343"><a href="#cb18-343" aria-hidden="true" tabindex="-1"></a>             edgecolors<span class="op">=</span><span class="st">"#6F6F6F"</span>, color<span class="op">=</span><span class="st">"#C5C5C5"</span>, s<span class="op">=</span><span class="dv">5</span>)</span>
-<span id="cb18-344"><a href="#cb18-344" aria-hidden="true" tabindex="-1"></a>  ax.set_xlabel(<span class="vs">r'$x_0$'</span>)</span>
-<span id="cb18-345"><a href="#cb18-345" aria-hidden="true" tabindex="-1"></a>  ax.set_ylabel(<span class="vs">r'$x_1$'</span>)</span>
-<span id="cb18-346"><a href="#cb18-346" aria-hidden="true" tabindex="-1"></a>  plt.show()</span>
-<span id="cb18-347"><a href="#cb18-347" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-348"><a href="#cb18-348" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-349"><a href="#cb18-349" aria-hidden="true" tabindex="-1"></a>Before going into further details, we will present the missing mechanism. Let $V_0$ and $V_1$ be random variables uniformly distributed under the $]0,1[$ segment with copula $C_{(V_0,V_1)}$. We set $I_0 = 1<span class="sc">\{</span>{V_0 \leq p_0}<span class="sc">\}</span>$ and $I_1 = 1<span class="sc">\{</span>{V_1 \leq p_1}<span class="sc">\}</span>$. It is thus immediate that $I_0 \sim \mathcal{B}(p_0)$ and $I_1 \sim \mathcal{B}(p_1)$ and $p \triangleq \mathbb{P}<span class="sc">\{</span>I_0 = 1, I_1 =1 <span class="sc">\}</span> = C_{(V_0,V_1)}(p_0, p_1)$. For our illustration, we will take $C_{(V_0,V_1)}$ as a \texttt{Joe} copula with parameter $\theta = 2.0$ (we refer to @sec-bv_arch for a definition of this copula). For this copula, it is more likely to observe a realization $v_0 \geq 0.8$ from $V_0$ if $v_1 \geq 0.8$ from $V_1$. If we observe $v_1 &lt; 0.8$, the realization $v_0$ is close to being independent of $v_1$. In climate studies, extreme events could damage the recording instrument in the surrounding regions where they occur, thus the missingness of one variable may depend on others. We initialize the copula $C_{(V_0,V_1)}$ with the following line:</span>
-<span id="cb18-350"><a href="#cb18-350" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-353"><a href="#cb18-353" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb18-354"><a href="#cb18-354" aria-hidden="true" tabindex="-1"></a>  copula_miss <span class="op">=</span> archimedean.Joe(theta<span class="op">=</span><span class="fl">2.0</span>, n_samples<span class="op">=</span>n_samples)</span>
-<span id="cb18-355"><a href="#cb18-355" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-356"><a href="#cb18-356" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-357"><a href="#cb18-357" aria-hidden="true" tabindex="-1"></a>For a given $\lambda \in ]0,1[$, we now want to estimate a $\lambda$-madogram with a sample from the asymmetric negative logistic model, where some observations are missing due to the missing mechanism described above. We will repeat this step several times to compute an empirical counterpart of the asymptotic variance. The \texttt{MonteCarlo} object has been designed for this purpose: we specify the number of iterations $n_{iter}$ (take $n_{iter} = 1024$), the chosen extreme value copula (asymmetric negative logistic model), the missing mechanism (described by $C_{(V_0,V_1)}$ and $p_0 = p_1 = 0.9$), and $\lambda$ (noted $\texttt{w}$). We can write the following lines of code:</span>
-<span id="cb18-358"><a href="#cb18-358" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-361"><a href="#cb18-361" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb18-362"><a href="#cb18-362" aria-hidden="true" tabindex="-1"></a>  u <span class="op">=</span> np.array([<span class="fl">0.9</span>, <span class="fl">0.9</span>])</span>
-<span id="cb18-363"><a href="#cb18-363" aria-hidden="true" tabindex="-1"></a>  n_iter, P, w <span class="op">=</span> <span class="dv">256</span>, [[u[<span class="dv">0</span>], copula_miss._c(</span>
-<span id="cb18-364"><a href="#cb18-364" aria-hidden="true" tabindex="-1"></a>      u)], [copula_miss._c(u), u[<span class="dv">1</span>]]], np.array([<span class="fl">0.5</span>,<span class="fl">0.5</span>])</span>
-<span id="cb18-365"><a href="#cb18-365" aria-hidden="true" tabindex="-1"></a>  monte <span class="op">=</span> monte_carlo.MonteCarlo(n_iter<span class="op">=</span>n_iter, n_samples<span class="op">=</span>n_samples,</span>
-<span id="cb18-366"><a href="#cb18-366" aria-hidden="true" tabindex="-1"></a>                                 copula<span class="op">=</span>copula, copula_miss<span class="op">=</span>copula_miss,</span>
-<span id="cb18-367"><a href="#cb18-367" aria-hidden="true" tabindex="-1"></a>                                 weight<span class="op">=</span>w, matp<span class="op">=</span>P)</span>
-<span id="cb18-368"><a href="#cb18-368" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-369"><a href="#cb18-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-370"><a href="#cb18-370" aria-hidden="true" tabindex="-1"></a>The $\texttt{MonteCarlo}$ object is thus initialized with all parameters needed. We may use the $\texttt{simu}$ method to generate a $\texttt{DataFrame}$ (a $\texttt{pandas}$ object) composed out $1024$ rows and $3$ columns. Each row contains an estimate of the $\lambda$-madogram, $\hat{\nu}_n^{\mathcal{H}*}$ in @thm-line ($\texttt{var<span class="sc">\_</span>mado}$), the sample length $n$ ($\texttt{n}$) and the normalized estimation error ($\texttt{scaled}$). We thus call the $\texttt{simu}$ method.</span>
-<span id="cb18-371"><a href="#cb18-371" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-374"><a href="#cb18-374" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb18-375"><a href="#cb18-375" aria-hidden="true" tabindex="-1"></a>  df_wmado <span class="op">=</span> monte.finite_sample(inv_cdf<span class="op">=</span>[norm.ppf, expon.ppf], corr<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb18-376"><a href="#cb18-376" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(df_wmado.head())</span>
-<span id="cb18-377"><a href="#cb18-377" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-378"><a href="#cb18-378" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-379"><a href="#cb18-379" aria-hidden="true" tabindex="-1"></a>The argument $\texttt{corr=True}$ specifies that we compute the corrected estimator, $\hat{\nu}_n^{\mathcal{H}*}$ in @thm-line. Now, using the $\texttt{var\_mado}$ method defined inside in the **Extreme** class, we obtain the asymptotic variance for the given model and parameters from the missing mechanism. We obtain this quantity as follows</span>
-<span id="cb18-380"><a href="#cb18-380" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-383"><a href="#cb18-383" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb18-384"><a href="#cb18-384" aria-hidden="true" tabindex="-1"></a>  var_mado <span class="op">=</span> copula.var_mado(w, jointp<span class="op">=</span>copula_miss._c(u), matp<span class="op">=</span>P, corr<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb18-385"><a href="#cb18-385" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(var_mado)</span>
-<span id="cb18-386"><a href="#cb18-386" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(df_wmado[<span class="st">'scaled'</span>].var())</span>
-<span id="cb18-387"><a href="#cb18-387" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-388"><a href="#cb18-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-389"><a href="#cb18-389" aria-hidden="true" tabindex="-1"></a>We propose here to check numerically the asymptotic normality with variance $\mathcal{S}^{\mathcal{H}*}$ of the normalized estimation error of the corrected estimator. We have all data in hand and the asymptotic variance was computed by lines above. We thus write:</span>
-<span id="cb18-390"><a href="#cb18-390" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-393"><a href="#cb18-393" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb18-394"><a href="#cb18-394" aria-hidden="true" tabindex="-1"></a>    sigma <span class="op">=</span> np.sqrt(var_mado)</span>
-<span id="cb18-395"><a href="#cb18-395" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.linspace(<span class="bu">min</span>(df_wmado[<span class="st">'scaled'</span>]), <span class="bu">max</span>(df_wmado[<span class="st">'scaled'</span>]), <span class="dv">1000</span>)</span>
-<span id="cb18-396"><a href="#cb18-396" aria-hidden="true" tabindex="-1"></a>    gauss <span class="op">=</span> gauss_function(x, <span class="dv">0</span>, sigma)</span>
-<span id="cb18-397"><a href="#cb18-397" aria-hidden="true" tabindex="-1"></a>    sns.displot(data<span class="op">=</span>df_wmado, x<span class="op">=</span><span class="st">"scaled"</span>, color<span class="op">=</span><span class="st">'#C5C5C5'</span>,</span>
-<span id="cb18-398"><a href="#cb18-398" aria-hidden="true" tabindex="-1"></a>                kind<span class="op">=</span><span class="st">'hist'</span>, stat<span class="op">=</span><span class="st">'density'</span>, common_norm<span class="op">=</span><span class="va">False</span>,</span>
-<span id="cb18-399"><a href="#cb18-399" aria-hidden="true" tabindex="-1"></a>                alpha<span class="op">=</span><span class="fl">0.5</span>, fill<span class="op">=</span><span class="va">True</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, bins<span class="op">=</span><span class="dv">20</span>)</span>
-<span id="cb18-400"><a href="#cb18-400" aria-hidden="true" tabindex="-1"></a>    plt.plot(x,gauss, color<span class="op">=</span><span class="st">'#6F6F6F'</span>)</span>
-<span id="cb18-401"><a href="#cb18-401" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-402"><a href="#cb18-402" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-403"><a href="#cb18-403" aria-hidden="true" tabindex="-1"></a><span class="fu"># Discussion {#sec-discussion}</span></span>
-<span id="cb18-404"><a href="#cb18-404" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-405"><a href="#cb18-405" aria-hidden="true" tabindex="-1"></a><span class="fu">## Comparison of $\textsf{clayton}$ with $\textsf{R}$ packages</span></span>
-<span id="cb18-406"><a href="#cb18-406" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-407"><a href="#cb18-407" aria-hidden="true" tabindex="-1"></a>To compare \textsf{clayton} to existing packages in $\textsf{R}$, we consider the $\textsf{copula}$ package (@kojadinovic2010modeling) and $\textsf{mev}$ (@mevR) for sampling from Archimedean and multivariate extreme value distributions, respectively. To run the experiment, we use two computer clusters. The first cluster consists of five nodes, each with two 18-core Xeon Gold 3.1 GHz processors and 192 GB of memory, with 2933 MHz per socket. The second cluster has two CPU sockets, each containing a Xeon Platinum 8268 2.90 GHz processor with 24 cores. These configurations provide a significant amount of computational power and are well-suited for handling complex, data-intensive tasks. We use the first cluster to install the $\textsf{copula}$ package and sample from the $\textbf{Clayton}$, $\textbf{Frank}$, and $\textbf{Joe}$ models. We consider an increasing dimension $d \in <span class="sc">\{</span>50, 100, \dots, 1600<span class="sc">\}</span>$ for a fixed sample size of $n=1000$. For the copula package, we compute the average time spent across 100 runs in order to cancel out variability. We use the second cluster to install the $\textsf{mev}$ package and call some of its methods to sample from the $\textbf{Husler Reiss}$, $\textbf{Logistic}$, and $\textbf{TEV}$ distributions. Sampling from the latter is fast, but sampling from the two others is time consuming. Therefore, we only consider dimensions $d \in <span class="sc">\{</span>25, 50, \dots, 250<span class="sc">\}</span>$ for a fixed sample size of $n=1000$.</span>
-<span id="cb18-408"><a href="#cb18-408" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-409"><a href="#cb18-409" aria-hidden="true" tabindex="-1"></a>::: {#fig-num_res layout-ncol=2}</span>
-<span id="cb18-410"><a href="#cb18-410" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-411"><a href="#cb18-411" aria-hidden="true" tabindex="-1"></a><span class="al">![Archimedean](figures/discussion/num_time_arch.png)</span></span>
-<span id="cb18-412"><a href="#cb18-412" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-413"><a href="#cb18-413" aria-hidden="true" tabindex="-1"></a><span class="al">![Multivariate extreme value](figures/discussion/num_time_evd.png)</span></span>
-<span id="cb18-414"><a href="#cb18-414" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-415"><a href="#cb18-415" aria-hidden="true" tabindex="-1"></a>Comparison results. Time spent (in seconds) to sample from the corresponding models with respect to the dimension $d$. The left panel shows the results for sampling from $\textbf{Clayton}$, $\textbf{Frank}$ and $\textbf{Joe}$ using $\textsf{clayton}$ in $\textsf{Python}$ and $\textsf{copula}$ in $\textsf{R}$. The right panel shows the results for sampling from $\textbf{HuslerReiss}$, $\textbf{Logistic}$ and $\textbf{TEV}$ by $\textsf{clayton}$ in $\textsf{Python}$ and $\textsf{mev}$ in $\textsf{R}$. In both cases, $1000$ vectors are generated for each model.</span>
-<span id="cb18-416"><a href="#cb18-416" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb18-417"><a href="#cb18-417" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-418"><a href="#cb18-418" aria-hidden="true" tabindex="-1"></a>The figure shows the results of a comparison between the $\textsf{clayton}$ and $\textsf{copula}$ packages in $\textsf{R}$, and the $\textsf{mev}$ package in $\textsf{Python}$. The comparison shows that the $\textsf{clayton}$ package is more efficient at sampling from $\textbf{Clayton}$, $\textbf{Frank}$ and $\textbf{Joe}$ copulae than the $\textsf{copula}$ package. The gap in efficiency may be due to the choice of algorithms used in the $\textsf{clayton}$ package, which uses frailty distributions. The time required for sampling increases linearly with the dimension for the $\textsf{clayton}$ package, but shows a more erratic behavior for the $\textsf{copula}$ package.</span>
-<span id="cb18-419"><a href="#cb18-419" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-420"><a href="#cb18-420" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion</span></span>
-<span id="cb18-421"><a href="#cb18-421" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-422"><a href="#cb18-422" aria-hidden="true" tabindex="-1"></a>This paper presents the construction and some implementations of the $\textsf{Python}$ package $\textsf{clayton}$ for random copula sampling. This is a seminal work in the field of software implementation of copula modeling in $\textsf{Python}$ and there is much more potential for growth. It is hoped that the potential diffusion of the software through those who need it may bring further implementations for multivariate modeling with copulae under $\textsf{Python}$. For example, choosing a copula to fit the data is an important but difficult problem. A robust approach to estimating copulae has been investigated recently by @alquier2020estimation using Maximum Mean Discrepancy. In relation to our example, semiparametric estimation of copulae with missing data could be of great interest, as proposed by @HAMORI201985.</span>
-<span id="cb18-423"><a href="#cb18-423" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-424"><a href="#cb18-424" aria-hidden="true" tabindex="-1"></a>Additionally, implementation of the algorithm proposed by @10.1214/07-AOS556 for generating random vectors for Archimedean copulae has been tackled, but as expected, numerical inversion gives spurious results, especially when the parameter $\theta$ and the dimension $d$ are high. Furthermore, as the support of the radial distribution is contained in the real line, numerical inversion leads to increased computational time. Further investigation is needed in order to generate random vectors from classical Archimedan models using the radial distribution.</span>
-<span id="cb18-425"><a href="#cb18-425" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-426"><a href="#cb18-426" aria-hidden="true" tabindex="-1"></a>A direction of improvement for the $\textsf{clayton}$ package is dependence modeling with Vine copulae, which have recently been a tool of high interest in the machine learning community (see, e.g., @lopez2013gaussian, @Veeramachaneni2015CopulaGM, @Carrera2016VineCC, @10.5555/2946645.2946678 or @SunCuesta-InfanteVeeramachaneni2019). This highlights the need for dependence modeling with copulae in $\textsf{Python}$, as a significant part of the machine learning community uses this language. In relation to this paper, Vine copulae may be useful for modeling dependencies between extreme events, as suggested by @SIMPSON2021104736, @nolde2021linking. Furthermore, other copula models could be implemented to model further dependencies. These implementations will expand the scope of dependence modeling with $\textsf{Python}$ and provide high-quality, usable tools for anyone who needs them.</span>
-<span id="cb18-427"><a href="#cb18-427" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-321"><a href="#cb18-321" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (np.sqrt(<span class="fl">1.</span> <span class="op">/</span> (<span class="dv">2</span><span class="op">*</span>np.pi <span class="op">*</span> sigma<span class="op">**</span><span class="dv">2</span>)) <span class="op">*</span></span>
+<span id="cb18-322"><a href="#cb18-322" aria-hidden="true" tabindex="-1"></a>              np.exp(<span class="op">-</span>(x <span class="op">-</span> x0) <span class="op">**</span> <span class="dv">2</span> <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> sigma<span class="op">**</span><span class="dv">2</span>)))</span>
+<span id="cb18-323"><a href="#cb18-323" aria-hidden="true" tabindex="-1"></a>  n_samples <span class="op">=</span> <span class="dv">512</span></span>
+<span id="cb18-324"><a href="#cb18-324" aria-hidden="true" tabindex="-1"></a>  theta, psi1, psi2 <span class="op">=</span> <span class="dv">10</span>, <span class="fl">0.1</span>, <span class="fl">1.0</span></span>
+<span id="cb18-325"><a href="#cb18-325" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-326"><a href="#cb18-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-327"><a href="#cb18-327" aria-hidden="true" tabindex="-1"></a>We choose the standard normal and exponential as margins. To simulate this sample, the following lines should be typed:</span>
+<span id="cb18-328"><a href="#cb18-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-331"><a href="#cb18-331" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb18-332"><a href="#cb18-332" aria-hidden="true" tabindex="-1"></a>  copula <span class="op">=</span> evd.AsyNegLog(theta<span class="op">=</span>theta, psi1<span class="op">=</span>psi1,</span>
+<span id="cb18-333"><a href="#cb18-333" aria-hidden="true" tabindex="-1"></a>                         psi2<span class="op">=</span>psi2, n_samples<span class="op">=</span>n_samples)</span>
+<span id="cb18-334"><a href="#cb18-334" aria-hidden="true" tabindex="-1"></a>  sample <span class="op">=</span> copula.sample(inv_cdf<span class="op">=</span>[norm.ppf, expon.ppf])</span>
+<span id="cb18-335"><a href="#cb18-335" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-336"><a href="#cb18-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-337"><a href="#cb18-337" aria-hidden="true" tabindex="-1"></a>The $1024 \times 2$ array $\texttt{sample}$ contains $1024$ realization of the $\textbf{asymmetric negative logistic}$ model where the first column is distributed according to a standard normal random variable and the second column as a standard exponential. This distribution is depicted below. To obtain it, one needs the following lines of command:</span>
+<span id="cb18-338"><a href="#cb18-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-341"><a href="#cb18-341" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb18-342"><a href="#cb18-342" aria-hidden="true" tabindex="-1"></a>  fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb18-343"><a href="#cb18-343" aria-hidden="true" tabindex="-1"></a>  ax.scatter(sample[:,<span class="dv">0</span>], sample[:,<span class="dv">1</span>],</span>
+<span id="cb18-344"><a href="#cb18-344" aria-hidden="true" tabindex="-1"></a>             edgecolors<span class="op">=</span><span class="st">"#6F6F6F"</span>, color<span class="op">=</span><span class="st">"#C5C5C5"</span>, s<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb18-345"><a href="#cb18-345" aria-hidden="true" tabindex="-1"></a>  ax.set_xlabel(<span class="vs">r'$x_0$'</span>)</span>
+<span id="cb18-346"><a href="#cb18-346" aria-hidden="true" tabindex="-1"></a>  ax.set_ylabel(<span class="vs">r'$x_1$'</span>)</span>
+<span id="cb18-347"><a href="#cb18-347" aria-hidden="true" tabindex="-1"></a>  plt.show()</span>
+<span id="cb18-348"><a href="#cb18-348" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-349"><a href="#cb18-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-350"><a href="#cb18-350" aria-hidden="true" tabindex="-1"></a>Before going into further details, we will present the missing mechanism. Let $V_0$ and $V_1$ be random variables uniformly distributed under the $]0,1[$ segment with copula $C_{(V_0,V_1)}$. We set $I_0 = 1<span class="sc">\{</span>{V_0 \leq p_0}<span class="sc">\}</span>$ and $I_1 = 1<span class="sc">\{</span>{V_1 \leq p_1}<span class="sc">\}</span>$. It is thus immediate that $I_0 \sim \mathcal{B}(p_0)$ and $I_1 \sim \mathcal{B}(p_1)$ and $p \triangleq \mathbb{P}<span class="sc">\{</span>I_0 = 1, I_1 =1 <span class="sc">\}</span> = C_{(V_0,V_1)}(p_0, p_1)$. For our illustration, we will take $C_{(V_0,V_1)}$ as a \texttt{Joe} copula with parameter $\theta = 2.0$ (we refer to @sec-bv_arch for a definition of this copula). For this copula, it is more likely to observe a realization $v_0 \geq 0.8$ from $V_0$ if $v_1 \geq 0.8$ from $V_1$. If we observe $v_1 &lt; 0.8$, the realization $v_0$ is close to being independent of $v_1$. In climate studies, extreme events could damage the recording instrument in the surrounding regions where they occur, thus the missingness of one variable may depend on others. We initialize the copula $C_{(V_0,V_1)}$ with the following line:</span>
+<span id="cb18-351"><a href="#cb18-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-354"><a href="#cb18-354" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb18-355"><a href="#cb18-355" aria-hidden="true" tabindex="-1"></a>  copula_miss <span class="op">=</span> archimedean.Joe(theta<span class="op">=</span><span class="fl">2.0</span>, n_samples<span class="op">=</span>n_samples)</span>
+<span id="cb18-356"><a href="#cb18-356" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-357"><a href="#cb18-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-358"><a href="#cb18-358" aria-hidden="true" tabindex="-1"></a>For a given $\lambda \in ]0,1[$, we now want to estimate a $\lambda$-madogram with a sample from the asymmetric negative logistic model, where some observations are missing due to the missing mechanism described above. We will repeat this step several times to compute an empirical counterpart of the asymptotic variance. The \texttt{MonteCarlo} object has been designed for this purpose: we specify the number of iterations $n_{iter}$ (take $n_{iter} = 1024$), the chosen extreme value copula (asymmetric negative logistic model), the missing mechanism (described by $C_{(V_0,V_1)}$ and $p_0 = p_1 = 0.9$), and $\lambda$ (noted $\texttt{w}$). We can write the following lines of code:</span>
+<span id="cb18-359"><a href="#cb18-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-362"><a href="#cb18-362" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb18-363"><a href="#cb18-363" aria-hidden="true" tabindex="-1"></a>  u <span class="op">=</span> np.array([<span class="fl">0.9</span>, <span class="fl">0.9</span>])</span>
+<span id="cb18-364"><a href="#cb18-364" aria-hidden="true" tabindex="-1"></a>  n_iter, P, w <span class="op">=</span> <span class="dv">256</span>, [[u[<span class="dv">0</span>], copula_miss._c(</span>
+<span id="cb18-365"><a href="#cb18-365" aria-hidden="true" tabindex="-1"></a>      u)], [copula_miss._c(u), u[<span class="dv">1</span>]]], np.array([<span class="fl">0.5</span>,<span class="fl">0.5</span>])</span>
+<span id="cb18-366"><a href="#cb18-366" aria-hidden="true" tabindex="-1"></a>  monte <span class="op">=</span> monte_carlo.MonteCarlo(n_iter<span class="op">=</span>n_iter, n_samples<span class="op">=</span>n_samples,</span>
+<span id="cb18-367"><a href="#cb18-367" aria-hidden="true" tabindex="-1"></a>                                 copula<span class="op">=</span>copula, copula_miss<span class="op">=</span>copula_miss,</span>
+<span id="cb18-368"><a href="#cb18-368" aria-hidden="true" tabindex="-1"></a>                                 weight<span class="op">=</span>w, matp<span class="op">=</span>P)</span>
+<span id="cb18-369"><a href="#cb18-369" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-370"><a href="#cb18-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-371"><a href="#cb18-371" aria-hidden="true" tabindex="-1"></a>The $\texttt{MonteCarlo}$ object is thus initialized with all parameters needed. We may use the $\texttt{simu}$ method to generate a $\texttt{DataFrame}$ (a $\texttt{pandas}$ object) composed out $1024$ rows and $3$ columns. Each row contains an estimate of the $\lambda$-madogram, $\hat{\nu}_n^{\mathcal{H}*}$ in @thm-line ($\texttt{var<span class="sc">\_</span>mado}$), the sample length $n$ ($\texttt{n}$) and the normalized estimation error ($\texttt{scaled}$). We thus call the $\texttt{simu}$ method.</span>
+<span id="cb18-372"><a href="#cb18-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-375"><a href="#cb18-375" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb18-376"><a href="#cb18-376" aria-hidden="true" tabindex="-1"></a>  df_wmado <span class="op">=</span> monte.finite_sample(inv_cdf<span class="op">=</span>[norm.ppf, expon.ppf], corr<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb18-377"><a href="#cb18-377" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(df_wmado.head())</span>
+<span id="cb18-378"><a href="#cb18-378" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-379"><a href="#cb18-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-380"><a href="#cb18-380" aria-hidden="true" tabindex="-1"></a>The argument $\texttt{corr=True}$ specifies that we compute the corrected estimator, $\hat{\nu}_n^{\mathcal{H}*}$ in @thm-line. Now, using the $\texttt{var\_mado}$ method defined inside in the **Extreme** class, we obtain the asymptotic variance for the given model and parameters from the missing mechanism. We obtain this quantity as follows</span>
+<span id="cb18-381"><a href="#cb18-381" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-384"><a href="#cb18-384" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb18-385"><a href="#cb18-385" aria-hidden="true" tabindex="-1"></a>  var_mado <span class="op">=</span> copula.var_mado(w, jointp<span class="op">=</span>copula_miss._c(u), matp<span class="op">=</span>P, corr<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb18-386"><a href="#cb18-386" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(var_mado)</span>
+<span id="cb18-387"><a href="#cb18-387" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(df_wmado[<span class="st">'scaled'</span>].var())</span>
+<span id="cb18-388"><a href="#cb18-388" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-389"><a href="#cb18-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-390"><a href="#cb18-390" aria-hidden="true" tabindex="-1"></a>We propose here to check numerically the asymptotic normality with variance $\mathcal{S}^{\mathcal{H}*}$ of the normalized estimation error of the corrected estimator. We have all data in hand and the asymptotic variance was computed by lines above. We thus write:</span>
+<span id="cb18-391"><a href="#cb18-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-394"><a href="#cb18-394" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb18-395"><a href="#cb18-395" aria-hidden="true" tabindex="-1"></a>    sigma <span class="op">=</span> np.sqrt(var_mado)</span>
+<span id="cb18-396"><a href="#cb18-396" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.linspace(<span class="bu">min</span>(df_wmado[<span class="st">'scaled'</span>]), <span class="bu">max</span>(df_wmado[<span class="st">'scaled'</span>]), <span class="dv">1000</span>)</span>
+<span id="cb18-397"><a href="#cb18-397" aria-hidden="true" tabindex="-1"></a>    gauss <span class="op">=</span> gauss_function(x, <span class="dv">0</span>, sigma)</span>
+<span id="cb18-398"><a href="#cb18-398" aria-hidden="true" tabindex="-1"></a>    sns.displot(data<span class="op">=</span>df_wmado, x<span class="op">=</span><span class="st">"scaled"</span>, color<span class="op">=</span><span class="st">'#C5C5C5'</span>,</span>
+<span id="cb18-399"><a href="#cb18-399" aria-hidden="true" tabindex="-1"></a>                kind<span class="op">=</span><span class="st">'hist'</span>, stat<span class="op">=</span><span class="st">'density'</span>, common_norm<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb18-400"><a href="#cb18-400" aria-hidden="true" tabindex="-1"></a>                alpha<span class="op">=</span><span class="fl">0.5</span>, fill<span class="op">=</span><span class="va">True</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, bins<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb18-401"><a href="#cb18-401" aria-hidden="true" tabindex="-1"></a>    plt.plot(x,gauss, color<span class="op">=</span><span class="st">'#6F6F6F'</span>)</span>
+<span id="cb18-402"><a href="#cb18-402" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-403"><a href="#cb18-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-404"><a href="#cb18-404" aria-hidden="true" tabindex="-1"></a><span class="fu"># Discussion {#sec-discussion}</span></span>
+<span id="cb18-405"><a href="#cb18-405" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-406"><a href="#cb18-406" aria-hidden="true" tabindex="-1"></a><span class="fu">## Comparison of $\textsf{clayton}$ with $\textsf{R}$ packages</span></span>
+<span id="cb18-407"><a href="#cb18-407" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-408"><a href="#cb18-408" aria-hidden="true" tabindex="-1"></a>To compare \textsf{clayton} to existing packages in $\textsf{R}$, we consider the $\textsf{copula}$ package (@kojadinovic2010modeling) and $\textsf{mev}$ (@mevR) for sampling from Archimedean and multivariate extreme value distributions, respectively. To run the experiment, we use two computer clusters. The first cluster consists of five nodes, each with two 18-core Xeon Gold 3.1 GHz processors and 192 GB of memory, with 2933 MHz per socket. The second cluster has two CPU sockets, each containing a Xeon Platinum 8268 2.90 GHz processor with 24 cores. These configurations provide a significant amount of computational power and are well-suited for handling complex, data-intensive tasks. We use the first cluster to install the $\textsf{copula}$ package and sample from the $\textbf{Clayton}$, $\textbf{Frank}$, and $\textbf{Joe}$ models. We consider an increasing dimension $d \in <span class="sc">\{</span>50, 100, \dots, 1600<span class="sc">\}</span>$ for a fixed sample size of $n=1000$. For the copula package, we compute the average time spent across 100 runs in order to cancel out variability. We use the second cluster to install the $\textsf{mev}$ package and call some of its methods to sample from the $\textbf{Husler Reiss}$, $\textbf{Logistic}$, and $\textbf{TEV}$ distributions. Sampling from the latter is fast, but sampling from the two others is time consuming. Therefore, we only consider dimensions $d \in <span class="sc">\{</span>25, 50, \dots, 250<span class="sc">\}</span>$ for a fixed sample size of $n=1000$.</span>
+<span id="cb18-409"><a href="#cb18-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-410"><a href="#cb18-410" aria-hidden="true" tabindex="-1"></a>::: {#fig-num_res layout-ncol=2}</span>
+<span id="cb18-411"><a href="#cb18-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-412"><a href="#cb18-412" aria-hidden="true" tabindex="-1"></a><span class="al">![Archimedean](figures/discussion/num_time_arch.png)</span></span>
+<span id="cb18-413"><a href="#cb18-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-414"><a href="#cb18-414" aria-hidden="true" tabindex="-1"></a><span class="al">![Multivariate extreme value](figures/discussion/num_time_evd.png)</span></span>
+<span id="cb18-415"><a href="#cb18-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-416"><a href="#cb18-416" aria-hidden="true" tabindex="-1"></a>Comparison results. Time spent (in seconds) to sample from the corresponding models with respect to the dimension $d$. The left panel shows the results for sampling from $\textbf{Clayton}$, $\textbf{Frank}$ and $\textbf{Joe}$ using $\textsf{clayton}$ in $\textsf{Python}$ and $\textsf{copula}$ in $\textsf{R}$. The right panel shows the results for sampling from $\textbf{HuslerReiss}$, $\textbf{Logistic}$ and $\textbf{TEV}$ by $\textsf{clayton}$ in $\textsf{Python}$ and $\textsf{mev}$ in $\textsf{R}$. In both cases, $1000$ vectors are generated for each model.</span>
+<span id="cb18-417"><a href="#cb18-417" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb18-418"><a href="#cb18-418" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-419"><a href="#cb18-419" aria-hidden="true" tabindex="-1"></a>The figure shows the results of a comparison between the $\textsf{clayton}$ and $\textsf{copula}$ packages in $\textsf{R}$, and the $\textsf{mev}$ package in $\textsf{Python}$. The comparison shows that the $\textsf{clayton}$ package is more efficient at sampling from $\textbf{Clayton}$, $\textbf{Frank}$ and $\textbf{Joe}$ copulae than the $\textsf{copula}$ package. The gap in efficiency may be due to the choice of algorithms used in the $\textsf{clayton}$ package, which uses frailty distributions. The time required for sampling increases linearly with the dimension for the $\textsf{clayton}$ package, but shows a more erratic behavior for the $\textsf{copula}$ package.</span>
+<span id="cb18-420"><a href="#cb18-420" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-421"><a href="#cb18-421" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion</span></span>
+<span id="cb18-422"><a href="#cb18-422" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-423"><a href="#cb18-423" aria-hidden="true" tabindex="-1"></a>This paper presents the construction and some implementations of the $\textsf{Python}$ package $\textsf{clayton}$ for random copula sampling. This is a seminal work in the field of software implementation of copula modeling in $\textsf{Python}$ and there is much more potential for growth. It is hoped that the potential diffusion of the software through those who need it may bring further implementations for multivariate modeling with copulae under $\textsf{Python}$. For example, choosing a copula to fit the data is an important but difficult problem. A robust approach to estimating copulae has been investigated recently by @alquier2020estimation using Maximum Mean Discrepancy. In relation to our example, semiparametric estimation of copulae with missing data could be of great interest, as proposed by @HAMORI201985.</span>
+<span id="cb18-424"><a href="#cb18-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-425"><a href="#cb18-425" aria-hidden="true" tabindex="-1"></a>Additionally, implementation of the algorithm proposed by @10.1214/07-AOS556 for generating random vectors for Archimedean copulae has been tackled, but as expected, numerical inversion gives spurious results, especially when the parameter $\theta$ and the dimension $d$ are high. Furthermore, as the support of the radial distribution is contained in the real line, numerical inversion leads to increased computational time. Further investigation is needed in order to generate random vectors from classical Archimedan models using the radial distribution.</span>
+<span id="cb18-426"><a href="#cb18-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-427"><a href="#cb18-427" aria-hidden="true" tabindex="-1"></a>A direction of improvement for the $\textsf{clayton}$ package is dependence modeling with Vine copulae, which have recently been a tool of high interest in the machine learning community (see, e.g., @lopez2013gaussian, @Veeramachaneni2015CopulaGM, @Carrera2016VineCC, @10.5555/2946645.2946678 or @SunCuesta-InfanteVeeramachaneni2019). This highlights the need for dependence modeling with copulae in $\textsf{Python}$, as a significant part of the machine learning community uses this language. In relation to this paper, Vine copulae may be useful for modeling dependencies between extreme events, as suggested by @SIMPSON2021104736, @nolde2021linking. Furthermore, other copula models could be implemented to model further dependencies. These implementations will expand the scope of dependence modeling with $\textsf{Python}$ and provide high-quality, usable tools for anyone who needs them.</span>
 <span id="cb18-428"><a href="#cb18-428" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-429"><a href="#cb18-429" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-430"><a href="#cb18-430" aria-hidden="true" tabindex="-1"></a><span class="fu"># References {.unnumbered}</span></span>
-<span id="cb18-431"><a href="#cb18-431" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-432"><a href="#cb18-432" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
-<span id="cb18-433"><a href="#cb18-433" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb18-434"><a href="#cb18-434" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-435"><a href="#cb18-435" aria-hidden="true" tabindex="-1"></a><span class="fu"># Appendix {#appendices}</span></span>
-<span id="cb18-436"><a href="#cb18-436" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-437"><a href="#cb18-437" aria-hidden="true" tabindex="-1"></a><span class="fu">## Bivariate Archimedean models {#sec-bv_arch}</span></span>
-<span id="cb18-438"><a href="#cb18-438" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-439"><a href="#cb18-439" aria-hidden="true" tabindex="-1"></a>:::&nbsp;{#fig-bv_arch_1}</span>
-<span id="cb18-440"><a href="#cb18-440" aria-hidden="true" tabindex="-1"></a><span class="al">![](figures/app/arch_table_1.png)</span>{width=100%}</span>
-<span id="cb18-441"><a href="#cb18-441" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb18-442"><a href="#cb18-442" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-443"><a href="#cb18-443" aria-hidden="true" tabindex="-1"></a>:::&nbsp;{#fig-bv_arch_2}</span>
-<span id="cb18-444"><a href="#cb18-444" aria-hidden="true" tabindex="-1"></a><span class="al">![](figures/app/arch_table_2.png)</span>{width=100%}</span>
-<span id="cb18-445"><a href="#cb18-445" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb18-446"><a href="#cb18-446" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-447"><a href="#cb18-447" aria-hidden="true" tabindex="-1"></a><span class="fu">## Implemented bivariate extreme models {#sec-bv_ext}</span></span>
-<span id="cb18-448"><a href="#cb18-448" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-449"><a href="#cb18-449" aria-hidden="true" tabindex="-1"></a>:::&nbsp;{#fig-bv_ext}</span>
-<span id="cb18-450"><a href="#cb18-450" aria-hidden="true" tabindex="-1"></a><span class="al">![](figures/app/ext_table.png)</span>{width=100%}</span>
-<span id="cb18-451"><a href="#cb18-451" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb18-452"><a href="#cb18-452" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-453"><a href="#cb18-453" aria-hidden="true" tabindex="-1"></a><span class="fu">## Multivariate Archimedean copulae {#sec-mv_arch}</span></span>
-<span id="cb18-454"><a href="#cb18-454" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-455"><a href="#cb18-455" aria-hidden="true" tabindex="-1"></a>:::&nbsp;{#fig-mv_arch}</span>
-<span id="cb18-456"><a href="#cb18-456" aria-hidden="true" tabindex="-1"></a><span class="al">![](figures/app/arch_mv_table.png)</span>{width=100%}</span>
-<span id="cb18-457"><a href="#cb18-457" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb18-458"><a href="#cb18-458" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-459"><a href="#cb18-459" aria-hidden="true" tabindex="-1"></a><span class="fu">## Multivariate extreme models {#sec-mv_ext}</span></span>
-<span id="cb18-460"><a href="#cb18-460" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-461"><a href="#cb18-461" aria-hidden="true" tabindex="-1"></a>Before giving the main details, we introduce some notations. Let $B$ be the set of all nonempty subsets of $<span class="sc">\{</span>1,\dots,d<span class="sc">\}</span>$ </span>
-<span id="cb18-462"><a href="#cb18-462" aria-hidden="true" tabindex="-1"></a>and $B_1 = <span class="sc">\{</span>b \in B, |b| = 1<span class="sc">\}</span>$, where $|b|$ denotes the number of elements in thet set $b$. We note by $B_{(j)} = <span class="sc">\{</span>b \in B, j \in b<span class="sc">\}</span>$. </span>
-<span id="cb18-463"><a href="#cb18-463" aria-hidden="true" tabindex="-1"></a>For $d=3$, the Pickands is expressed as</span>
-<span id="cb18-464"><a href="#cb18-464" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-465"><a href="#cb18-465" aria-hidden="true" tabindex="-1"></a>::: {#eq-mv_ext}</span>
-<span id="cb18-466"><a href="#cb18-466" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
-<span id="cb18-467"><a href="#cb18-467" aria-hidden="true" tabindex="-1"></a> A(\textbf{w}) =&amp; \alpha_1 w_1 + \psi_1 w_2 + \phi_1 w_3 + \left( (\alpha_2 w_1)^{\theta_1} + (\psi_2w_2)^{\theta_1} \right)^{1/\theta_1} + \left( (\alpha_3 w_2)^{\theta_2} + (\phi_2w_3)^{\theta_2} \right)^{1/\theta_2} <span class="sc">\\</span> &amp;+ \left( (\psi_3 w_2)^{\theta_3} + (\phi_3w_3)^{\theta_3} \right)^{1/\theta_3} </span>
-<span id="cb18-468"><a href="#cb18-468" aria-hidden="true" tabindex="-1"></a><span class="ss">  + </span>\left( (\alpha_4 w_1)^{\theta_4} + (\psi_4 w_2)^{\theta_4} + (\phi_4 w_3)^{\theta_4} \right)^{1/\theta_4},</span>
-<span id="cb18-469"><a href="#cb18-469" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
-<span id="cb18-470"><a href="#cb18-470" aria-hidden="true" tabindex="-1"></a>::: </span>
-<span id="cb18-471"><a href="#cb18-471" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-472"><a href="#cb18-472" aria-hidden="true" tabindex="-1"></a>where $\boldsymbol{\alpha} = (\alpha_1, \dots, \alpha_4), \boldsymbol{\psi} = (\psi_1, \dots, \psi_4), \boldsymbol{\phi} = (\phi_1, \dots, \phi_4)$ are all elements of $\Delta^3$. </span>
-<span id="cb18-473"><a href="#cb18-473" aria-hidden="true" tabindex="-1"></a>We take $\boldsymbol{\alpha} = (0.4,0.3,0.1,0.2)$, $\boldsymbol{\psi} = (0.1, 0.2, 0.4, 0.3)$, $\boldsymbol{\phi} = (0.6,0.1,0.1,0.2)$ and </span>
-<span id="cb18-474"><a href="#cb18-474" aria-hidden="true" tabindex="-1"></a>$\boldsymbol{\theta} = (\theta_1, \dots, \theta_4) = (0.6,0.5,0.8,0.3)$ as the dependence parameter.</span>
-<span id="cb18-475"><a href="#cb18-475" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-476"><a href="#cb18-476" aria-hidden="true" tabindex="-1"></a>The Dirichlet model is a mixture of $m$ Dirichlet densities, that is</span>
-<span id="cb18-477"><a href="#cb18-477" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb18-478"><a href="#cb18-478" aria-hidden="true" tabindex="-1"></a>    h(\textbf{w}) = \sum_{k=1}^m \theta_k \frac{\Gamma(\sum_{j=1}^d \sigma_{kj})}{\Pi_{j=1}^d \Gamma(\sigma_{kj})} \Pi_{j=1}^d w_j^{\sigma_{kj}-1},</span>
-<span id="cb18-479"><a href="#cb18-479" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb18-480"><a href="#cb18-480" aria-hidden="true" tabindex="-1"></a>with $\sum_{k=1}^m \theta_k = 1$, $\sigma_{kj} &gt; 0$ for $k \in <span class="sc">\{</span>1,\dots,m<span class="sc">\}</span>$ and $j \in <span class="sc">\{</span>1, \dots, d<span class="sc">\}</span>$. Let $\mathcal{D} \in [0, \infty)^{(d-1)\times (d-1)}$ denotes the space of symmetric strictly conditionnaly negative definite matrices that is</span>
-<span id="cb18-481"><a href="#cb18-481" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-482"><a href="#cb18-482" aria-hidden="true" tabindex="-1"></a>::: {#striclty_cond_neg}</span>
-<span id="cb18-483"><a href="#cb18-483" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
-<span id="cb18-484"><a href="#cb18-484" aria-hidden="true" tabindex="-1"></a>            \mathcal{D}_{k} = \Big\{ \Gamma \in [0,\infty)^{k \times k} : a^\top \Gamma a &lt; 0 \; \textrm{for all } a \in \mathbb{R}^{k} \setminus \{\textbf{0}\}  \, \textrm{with } \sum_{j=1}^{d-1} a_j = 0, \\ \Gamma_{ii} = 0, \Gamma_{ij} = \Gamma_{ji}, \quad 1 \leq i,j\leq k \Big<span class="sc">\}</span>.</span>
-<span id="cb18-485"><a href="#cb18-485" aria-hidden="true" tabindex="-1"></a>        \end{align*}</span>
-<span id="cb18-486"><a href="#cb18-486" aria-hidden="true" tabindex="-1"></a>::: </span>
-<span id="cb18-487"><a href="#cb18-487" aria-hidden="true" tabindex="-1"></a>For any $2 \leq k \leq d$, consider $m' = (m_1, \dots, m_k)$ with $1 \leq m_1 &lt;  \dots &lt; m_k \leq d$ define</span>
-<span id="cb18-488"><a href="#cb18-488" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb18-489"><a href="#cb18-489" aria-hidden="true" tabindex="-1"></a>    \Sigma^{(k)}_m = 2 \left( \Gamma_{m_i m_k} + \Gamma_{m_j m_k} - \Gamma_{m_i m_j} \right)_{m_i m_j \neq m_k} \in [0,\infty)^{(d-1)\times(d-1)}.</span>
-<span id="cb18-490"><a href="#cb18-490" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb18-491"><a href="#cb18-491" aria-hidden="true" tabindex="-1"></a>Furthermore, note $S(\cdot | \Sigma^{(k)}_m)$ denote the survival function of a normal random vector with mean vector $\textbf{0}$ and covariance matrix $\Sigma^{(k)}$. We now define :</span>
-<span id="cb18-492"><a href="#cb18-492" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb18-493"><a href="#cb18-493" aria-hidden="true" tabindex="-1"></a>    h_{km}(\textbf{y}) = \int_{y_k}^\infty S\left( (y_i - z + 2\Gamma_{m_i m_k})_{i=1}^{k-1} | \Gamma_{km}\right) e^{-z}dz </span>
-<span id="cb18-494"><a href="#cb18-494" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb18-495"><a href="#cb18-495" aria-hidden="true" tabindex="-1"></a>for $2 \leq k \leq d$. We denote by $\Sigma^{(k)}$ the summation over all $k$-vectors $m=(m_1,\dots,m_k)$ with $1\leq m_1 &lt; \dots &lt; m_k \leq d$.</span>
-<span id="cb18-496"><a href="#cb18-496" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-497"><a href="#cb18-497" aria-hidden="true" tabindex="-1"></a>:::&nbsp;{#fig-mv_ext}</span>
-<span id="cb18-498"><a href="#cb18-498" aria-hidden="true" tabindex="-1"></a><span class="al">![](figures/app/ext_mv_table.png)</span>{width=100%}</span>
-<span id="cb18-499"><a href="#cb18-499" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb18-500"><a href="#cb18-500" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-501"><a href="#cb18-501" aria-hidden="true" tabindex="-1"></a><span class="fu">## Multivariate elliptical dependencies {#sec-mv_ellip}</span></span>
-<span id="cb18-502"><a href="#cb18-502" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-503"><a href="#cb18-503" aria-hidden="true" tabindex="-1"></a>Let $\textbf{X} \sim \textbf{E}_d(\boldsymbol{\mu}, \Sigma, \psi)$ be an elliptical distributed random vector with cumulative distribution $F$ </span>
-<span id="cb18-504"><a href="#cb18-504" aria-hidden="true" tabindex="-1"></a>and marginal $F_0, \dots, F_{d-1}$. Then, the copula $C$ of $F$ is called an elliptical copula. We denote by  $\phi$ the standard normal distribution </span>
-<span id="cb18-505"><a href="#cb18-505" aria-hidden="true" tabindex="-1"></a>function and $\boldsymbol{\phi}_\Sigma$ the joint distribution function of $\textbf{X} \sim \mathcal{N}_d(\textbf{0}, \Sigma)$, where $\textbf{0}$ is </span>
-<span id="cb18-506"><a href="#cb18-506" aria-hidden="true" tabindex="-1"></a>the $d$-dimensional vector composed out of $0$. In the same way, we note $t_{\theta}$ the distribution function of a standard univariate distribution </span>
-<span id="cb18-507"><a href="#cb18-507" aria-hidden="true" tabindex="-1"></a>$t$ distribution and by $\boldsymbol{t}_{\theta, \Sigma}$ the joint distribution function of the vector $\textbf{X} \sim \boldsymbol{t}_{d}(\theta, \textbf{0}, \Sigma)$. </span>
-<span id="cb18-508"><a href="#cb18-508" aria-hidden="true" tabindex="-1"></a>A $d$ squared matrix $\Sigma$ is said to be positively semi definite if for all $u \in \mathbb{R}^d$ we have :</span>
-<span id="cb18-509"><a href="#cb18-509" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-510"><a href="#cb18-510" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb18-511"><a href="#cb18-511" aria-hidden="true" tabindex="-1"></a>  u^\top \Sigma u \geq 0</span>
-<span id="cb18-512"><a href="#cb18-512" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb18-513"><a href="#cb18-513" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-514"><a href="#cb18-514" aria-hidden="true" tabindex="-1"></a>:::&nbsp;{#fig-mv_elli}</span>
-<span id="cb18-515"><a href="#cb18-515" aria-hidden="true" tabindex="-1"></a><span class="al">![](figures/app/elli_table.png)</span>{width=100%}</span>
-<span id="cb18-516"><a href="#cb18-516" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb18-430"><a href="#cb18-430" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-431"><a href="#cb18-431" aria-hidden="true" tabindex="-1"></a><span class="fu"># References {.unnumbered}</span></span>
+<span id="cb18-432"><a href="#cb18-432" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-433"><a href="#cb18-433" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
+<span id="cb18-434"><a href="#cb18-434" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb18-435"><a href="#cb18-435" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-436"><a href="#cb18-436" aria-hidden="true" tabindex="-1"></a><span class="fu"># Appendix {#appendices}</span></span>
+<span id="cb18-437"><a href="#cb18-437" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-438"><a href="#cb18-438" aria-hidden="true" tabindex="-1"></a><span class="fu">## Bivariate Archimedean models {#sec-bv_arch}</span></span>
+<span id="cb18-439"><a href="#cb18-439" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-440"><a href="#cb18-440" aria-hidden="true" tabindex="-1"></a>:::&nbsp;{#fig-bv_arch_1}</span>
+<span id="cb18-441"><a href="#cb18-441" aria-hidden="true" tabindex="-1"></a><span class="al">![](figures/app/arch_table_1.png)</span>{width=100%}</span>
+<span id="cb18-442"><a href="#cb18-442" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb18-443"><a href="#cb18-443" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-444"><a href="#cb18-444" aria-hidden="true" tabindex="-1"></a>:::&nbsp;{#fig-bv_arch_2}</span>
+<span id="cb18-445"><a href="#cb18-445" aria-hidden="true" tabindex="-1"></a><span class="al">![](figures/app/arch_table_2.png)</span>{width=100%}</span>
+<span id="cb18-446"><a href="#cb18-446" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb18-447"><a href="#cb18-447" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-448"><a href="#cb18-448" aria-hidden="true" tabindex="-1"></a><span class="fu">## Implemented bivariate extreme models {#sec-bv_ext}</span></span>
+<span id="cb18-449"><a href="#cb18-449" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-450"><a href="#cb18-450" aria-hidden="true" tabindex="-1"></a>:::&nbsp;{#fig-bv_ext}</span>
+<span id="cb18-451"><a href="#cb18-451" aria-hidden="true" tabindex="-1"></a><span class="al">![](figures/app/ext_table.png)</span>{width=100%}</span>
+<span id="cb18-452"><a href="#cb18-452" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb18-453"><a href="#cb18-453" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-454"><a href="#cb18-454" aria-hidden="true" tabindex="-1"></a><span class="fu">## Multivariate Archimedean copulae {#sec-mv_arch}</span></span>
+<span id="cb18-455"><a href="#cb18-455" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-456"><a href="#cb18-456" aria-hidden="true" tabindex="-1"></a>:::&nbsp;{#fig-mv_arch}</span>
+<span id="cb18-457"><a href="#cb18-457" aria-hidden="true" tabindex="-1"></a><span class="al">![](figures/app/arch_mv_table.png)</span>{width=100%}</span>
+<span id="cb18-458"><a href="#cb18-458" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb18-459"><a href="#cb18-459" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-460"><a href="#cb18-460" aria-hidden="true" tabindex="-1"></a><span class="fu">## Multivariate extreme models {#sec-mv_ext}</span></span>
+<span id="cb18-461"><a href="#cb18-461" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-462"><a href="#cb18-462" aria-hidden="true" tabindex="-1"></a>Before giving the main details, we introduce some notations. Let $B$ be the set of all nonempty subsets of $<span class="sc">\{</span>1,\dots,d<span class="sc">\}</span>$ </span>
+<span id="cb18-463"><a href="#cb18-463" aria-hidden="true" tabindex="-1"></a>and $B_1 = <span class="sc">\{</span>b \in B, |b| = 1<span class="sc">\}</span>$, where $|b|$ denotes the number of elements in thet set $b$. We note by $B_{(j)} = <span class="sc">\{</span>b \in B, j \in b<span class="sc">\}</span>$. </span>
+<span id="cb18-464"><a href="#cb18-464" aria-hidden="true" tabindex="-1"></a>For $d=3$, the Pickands is expressed as</span>
+<span id="cb18-465"><a href="#cb18-465" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-466"><a href="#cb18-466" aria-hidden="true" tabindex="-1"></a>::: {#eq-mv_ext}</span>
+<span id="cb18-467"><a href="#cb18-467" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb18-468"><a href="#cb18-468" aria-hidden="true" tabindex="-1"></a> A(\textbf{w}) =&amp; \alpha_1 w_1 + \psi_1 w_2 + \phi_1 w_3 + \left( (\alpha_2 w_1)^{\theta_1} + (\psi_2w_2)^{\theta_1} \right)^{1/\theta_1} + \left( (\alpha_3 w_2)^{\theta_2} + (\phi_2w_3)^{\theta_2} \right)^{1/\theta_2} <span class="sc">\\</span> &amp;+ \left( (\psi_3 w_2)^{\theta_3} + (\phi_3w_3)^{\theta_3} \right)^{1/\theta_3} </span>
+<span id="cb18-469"><a href="#cb18-469" aria-hidden="true" tabindex="-1"></a><span class="ss">  + </span>\left( (\alpha_4 w_1)^{\theta_4} + (\psi_4 w_2)^{\theta_4} + (\phi_4 w_3)^{\theta_4} \right)^{1/\theta_4},</span>
+<span id="cb18-470"><a href="#cb18-470" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb18-471"><a href="#cb18-471" aria-hidden="true" tabindex="-1"></a>::: </span>
+<span id="cb18-472"><a href="#cb18-472" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-473"><a href="#cb18-473" aria-hidden="true" tabindex="-1"></a>where $\boldsymbol{\alpha} = (\alpha_1, \dots, \alpha_4), \boldsymbol{\psi} = (\psi_1, \dots, \psi_4), \boldsymbol{\phi} = (\phi_1, \dots, \phi_4)$ are all elements of $\Delta^3$. </span>
+<span id="cb18-474"><a href="#cb18-474" aria-hidden="true" tabindex="-1"></a>We take $\boldsymbol{\alpha} = (0.4,0.3,0.1,0.2)$, $\boldsymbol{\psi} = (0.1, 0.2, 0.4, 0.3)$, $\boldsymbol{\phi} = (0.6,0.1,0.1,0.2)$ and </span>
+<span id="cb18-475"><a href="#cb18-475" aria-hidden="true" tabindex="-1"></a>$\boldsymbol{\theta} = (\theta_1, \dots, \theta_4) = (0.6,0.5,0.8,0.3)$ as the dependence parameter.</span>
+<span id="cb18-476"><a href="#cb18-476" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-477"><a href="#cb18-477" aria-hidden="true" tabindex="-1"></a>The Dirichlet model is a mixture of $m$ Dirichlet densities, that is</span>
+<span id="cb18-478"><a href="#cb18-478" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb18-479"><a href="#cb18-479" aria-hidden="true" tabindex="-1"></a>    h(\textbf{w}) = \sum_{k=1}^m \theta_k \frac{\Gamma(\sum_{j=1}^d \sigma_{kj})}{\Pi_{j=1}^d \Gamma(\sigma_{kj})} \Pi_{j=1}^d w_j^{\sigma_{kj}-1},</span>
+<span id="cb18-480"><a href="#cb18-480" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb18-481"><a href="#cb18-481" aria-hidden="true" tabindex="-1"></a>with $\sum_{k=1}^m \theta_k = 1$, $\sigma_{kj} &gt; 0$ for $k \in <span class="sc">\{</span>1,\dots,m<span class="sc">\}</span>$ and $j \in <span class="sc">\{</span>1, \dots, d<span class="sc">\}</span>$. Let $\mathcal{D} \in [0, \infty)^{(d-1)\times (d-1)}$ denotes the space of symmetric strictly conditionnaly negative definite matrices that is</span>
+<span id="cb18-482"><a href="#cb18-482" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-483"><a href="#cb18-483" aria-hidden="true" tabindex="-1"></a>::: {#striclty_cond_neg}</span>
+<span id="cb18-484"><a href="#cb18-484" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb18-485"><a href="#cb18-485" aria-hidden="true" tabindex="-1"></a>            \mathcal{D}_{k} = \Big\{ \Gamma \in [0,\infty)^{k \times k} : a^\top \Gamma a &lt; 0 \; \textrm{for all } a \in \mathbb{R}^{k} \setminus \{\textbf{0}\}  \, \textrm{with } \sum_{j=1}^{d-1} a_j = 0, \\ \Gamma_{ii} = 0, \Gamma_{ij} = \Gamma_{ji}, \quad 1 \leq i,j\leq k \Big<span class="sc">\}</span>.</span>
+<span id="cb18-486"><a href="#cb18-486" aria-hidden="true" tabindex="-1"></a>        \end{align*}</span>
+<span id="cb18-487"><a href="#cb18-487" aria-hidden="true" tabindex="-1"></a>::: </span>
+<span id="cb18-488"><a href="#cb18-488" aria-hidden="true" tabindex="-1"></a>For any $2 \leq k \leq d$, consider $m' = (m_1, \dots, m_k)$ with $1 \leq m_1 &lt;  \dots &lt; m_k \leq d$ define</span>
+<span id="cb18-489"><a href="#cb18-489" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb18-490"><a href="#cb18-490" aria-hidden="true" tabindex="-1"></a>    \Sigma^{(k)}_m = 2 \left( \Gamma_{m_i m_k} + \Gamma_{m_j m_k} - \Gamma_{m_i m_j} \right)_{m_i m_j \neq m_k} \in [0,\infty)^{(d-1)\times(d-1)}.</span>
+<span id="cb18-491"><a href="#cb18-491" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb18-492"><a href="#cb18-492" aria-hidden="true" tabindex="-1"></a>Furthermore, note $S(\cdot | \Sigma^{(k)}_m)$ denote the survival function of a normal random vector with mean vector $\textbf{0}$ and covariance matrix $\Sigma^{(k)}$. We now define :</span>
+<span id="cb18-493"><a href="#cb18-493" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb18-494"><a href="#cb18-494" aria-hidden="true" tabindex="-1"></a>    h_{km}(\textbf{y}) = \int_{y_k}^\infty S\left( (y_i - z + 2\Gamma_{m_i m_k})_{i=1}^{k-1} | \Gamma_{km}\right) e^{-z}dz </span>
+<span id="cb18-495"><a href="#cb18-495" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb18-496"><a href="#cb18-496" aria-hidden="true" tabindex="-1"></a>for $2 \leq k \leq d$. We denote by $\Sigma^{(k)}$ the summation over all $k$-vectors $m=(m_1,\dots,m_k)$ with $1\leq m_1 &lt; \dots &lt; m_k \leq d$.</span>
+<span id="cb18-497"><a href="#cb18-497" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-498"><a href="#cb18-498" aria-hidden="true" tabindex="-1"></a>:::&nbsp;{#fig-mv_ext}</span>
+<span id="cb18-499"><a href="#cb18-499" aria-hidden="true" tabindex="-1"></a><span class="al">![](figures/app/ext_mv_table.png)</span>{width=100%}</span>
+<span id="cb18-500"><a href="#cb18-500" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb18-501"><a href="#cb18-501" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-502"><a href="#cb18-502" aria-hidden="true" tabindex="-1"></a><span class="fu">## Multivariate elliptical dependencies {#sec-mv_ellip}</span></span>
+<span id="cb18-503"><a href="#cb18-503" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-504"><a href="#cb18-504" aria-hidden="true" tabindex="-1"></a>Let $\textbf{X} \sim \textbf{E}_d(\boldsymbol{\mu}, \Sigma, \psi)$ be an elliptical distributed random vector with cumulative distribution $F$ </span>
+<span id="cb18-505"><a href="#cb18-505" aria-hidden="true" tabindex="-1"></a>and marginal $F_0, \dots, F_{d-1}$. Then, the copula $C$ of $F$ is called an elliptical copula. We denote by  $\phi$ the standard normal distribution </span>
+<span id="cb18-506"><a href="#cb18-506" aria-hidden="true" tabindex="-1"></a>function and $\boldsymbol{\phi}_\Sigma$ the joint distribution function of $\textbf{X} \sim \mathcal{N}_d(\textbf{0}, \Sigma)$, where $\textbf{0}$ is </span>
+<span id="cb18-507"><a href="#cb18-507" aria-hidden="true" tabindex="-1"></a>the $d$-dimensional vector composed out of $0$. In the same way, we note $t_{\theta}$ the distribution function of a standard univariate distribution </span>
+<span id="cb18-508"><a href="#cb18-508" aria-hidden="true" tabindex="-1"></a>$t$ distribution and by $\boldsymbol{t}_{\theta, \Sigma}$ the joint distribution function of the vector $\textbf{X} \sim \boldsymbol{t}_{d}(\theta, \textbf{0}, \Sigma)$. </span>
+<span id="cb18-509"><a href="#cb18-509" aria-hidden="true" tabindex="-1"></a>A $d$ squared matrix $\Sigma$ is said to be positively semi definite if for all $u \in \mathbb{R}^d$ we have :</span>
+<span id="cb18-510"><a href="#cb18-510" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-511"><a href="#cb18-511" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb18-512"><a href="#cb18-512" aria-hidden="true" tabindex="-1"></a>  u^\top \Sigma u \geq 0</span>
+<span id="cb18-513"><a href="#cb18-513" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb18-514"><a href="#cb18-514" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-515"><a href="#cb18-515" aria-hidden="true" tabindex="-1"></a>:::&nbsp;{#fig-mv_elli}</span>
+<span id="cb18-516"><a href="#cb18-516" aria-hidden="true" tabindex="-1"></a><span class="al">![](figures/app/elli_table.png)</span>{width=100%}</span>
+<span id="cb18-517"><a href="#cb18-517" aria-hidden="true" tabindex="-1"></a>:::</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

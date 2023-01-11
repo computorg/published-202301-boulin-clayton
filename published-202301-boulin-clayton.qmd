@@ -302,7 +302,8 @@ Benefiting from generating data with $\textsf{clayton}$ we are thus able, with M
 
 ```{python}
   def gauss_function(x, x0, sigma):
-      return np.sqrt(1. / (2*np.pi * sigma**2)) * np.exp(-(x - x0) ** 2 / (2 * sigma**2))
+      return (np.sqrt(1. / (2*np.pi * sigma**2)) *
+      	      np.exp(-(x - x0) ** 2 / (2 * sigma**2)))
   n_samples = 512
   theta, psi1, psi2 = 10, 0.1, 1.0
 ```

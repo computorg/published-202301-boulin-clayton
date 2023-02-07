@@ -19,7 +19,6 @@ abstract: >+
   The package $\textsf{clayton}$ is designed to be intuitive, user-friendly, and efficient. It offers a wide range of copula models, including Archimedean, Elliptical, and Extreme. The package is implemented in pure $\textsf{Python}$, making it easy to install and use. In addition, we provide detailed documentation and examples to help users get started quickly. We also conduct a performance comparison with existing $\textsf{R}$ packages, demonstrating the efficiency of our implementation. The $\textsf{clayton}$ package is a valuable tool for researchers and practitioners working with copulae in $\textsf{Python}$.
 keywords: [Copulae, Random number generation]
 citation:
-  author: Boulin, Alexis
   type: article-journal
   container-title: "Computo"
   publisher: "Société Française de Statistique"

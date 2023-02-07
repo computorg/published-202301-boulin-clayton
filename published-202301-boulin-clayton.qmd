@@ -2,13 +2,9 @@
 title: "A Python Package for Sampling from Copulae: clayton"
 subtitle: "A Python Package for Sampling from Copulae: clayton"
 author:
-  - name: 
-      given: Alexis
-      family: Boulin
-      literal: Alexis Boulin
+  - name: Alexis Boulin
     url: https://aleboul.github.io/
-    attributes: 
-      corresponding: true
+    corresponding: true
     email: aboulin@unice.fr
     affiliations:
       - name: Université Côte d'Azur, CNRS, LJAD, France

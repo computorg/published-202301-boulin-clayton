@@ -4,7 +4,7 @@ subtitle: "A Python Package for Sampling from Copulae: clayton"
 author:
   - name: 
       given: Alexis
-      familyy: Boulin
+      family: Boulin
       literal: Alexis Boulin
     url: https://aleboul.github.io/
     attributes: 

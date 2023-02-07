@@ -11,17 +11,19 @@ author:
         url: https://univ-cotedazur.fr/
       - name: Inria, Lemon
         url: https://www.inria.fr/fr/lemon
-date: last-modified
+date: 2023-01-12
+date-modified: last-modified
 description: |
   The package $\textsf{clayton}$ is designed to be intuitive, user-friendly, and efficient. It offers a wide range of copula models, including Archimedean, Elliptical, and Extreme. The package is implemented in pure $\textsf{Python}$, making it easy to install and use.
 abstract: >+
   The package $\textsf{clayton}$ is designed to be intuitive, user-friendly, and efficient. It offers a wide range of copula models, including Archimedean, Elliptical, and Extreme. The package is implemented in pure $\textsf{Python}$, making it easy to install and use. In addition, we provide detailed documentation and examples to help users get started quickly. We also conduct a performance comparison with existing $\textsf{R}$ packages, demonstrating the efficiency of our implementation. The $\textsf{clayton}$ package is a valuable tool for researchers and practitioners working with copulae in $\textsf{Python}$.
 keywords: [Copulae, Random number generation]
-doi: "10.57750/4szh-t752"
 citation:
+  author: Boulin, Alexis
   type: article-journal
   container-title: "Computo"
-  issued: "2023/01/12"
+  publisher: "Société Française de Statistique"
+  doi: "10.57750/4szh-t752"
   url: https://computo.sfds.asso.fr/published-202301-boulin-clayton
   issn: "2824-7795"
 google-scholar: true

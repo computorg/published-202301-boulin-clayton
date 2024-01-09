@@ -137,9 +137,9 @@ $$
   c_{u_0}(u_1) \triangleq \mathbb{P}\left\{ U_1 \leq u_1 | U_0 = u_0 \right\} = \frac{\partial C(u_0,u_1)}{\partial u_0}.
 $$ {#eq-cond_sim}
 
-This allows us to first sample $U_0$ from a uniform distribution on the unit interval, and then to use the copula to generate $U_1$ given $U_0$. Finally, we can transform the resulting sample $(U_0, U_1)$ into the original space by applying the inverse marginal distributions $F_0^{-1}$ and $F_1^{-1}$ to $U_0$ and $U_1$ respectively. Thus, an algorithm for sampling bivariate copulae is given in @fig-alg_1. Algorithm in @fig-alg_1 presents a procedure for generating a bivariate sample from a copula. The algorithm takes as input the length of the sample $n$, as well as the parameters of the copula ($\theta, \psi_1, \psi_2$). The output is a bivariate sample from the desired copula model, denoted $\{(u_0^{(1)},u_1^{(1)}), \dots, (u_0^{(n)},u_1^{(n)})\}$. This algorithm is applicable as long as the copula has a first partial derivative with respect to its first component.
+This allows us to first sample $U_0$ from a uniform distribution on the unit interval, and then to use the copula to generate $U_1$ given $U_0$. Finally, we can transform the resulting sample $(U_0, U_1)$ into the original space by applying the inverse marginal distributions $F_0^{-1}$ and $F_1^{-1}$ to $U_0$ and $U_1$ respectively. Thus, an algorithm for sampling bivariate copulae is given in @fig-alg-1. Algorithm in @fig-alg-1 presents a procedure for generating a bivariate sample from a copula. The algorithm takes as input the length of the sample $n$, as well as the parameters of the copula ($\theta, \psi_1, \psi_2$). The output is a bivariate sample from the desired copula model, denoted $\{(u_0^{(1)},u_1^{(1)}), \dots, (u_0^{(n)},u_1^{(n)})\}$. This algorithm is applicable as long as the copula has a first partial derivative with respect to its first component.
 
-::: {#fig-alg_1}
+::: {#fig-alg-1}
 ![](figures/alg_1.png)
 
 Conditional sampling from copula
@@ -157,7 +157,7 @@ $$ {#eq-partial_deriv_pick}
 
 where $t = \ln(u_1) / \ln(u_0u_1) \in (0,1)$ and $\mu(t) = A(t) - tA'(t)$.
 
-We now have all the necessary theoretical tools to give details on how the $\textsf{clayton}$ package is designed. The file $\texttt{base.py}$ contains the $\textbf{Multivariate}$ class and the $\texttt{sample}$ method to generate random numbers from $\textbf{X}$ with copula $C$. To do so, we use the inversion method that is to sample from $\textbf{U}$ using algorithm in @fig-alg_1 and we compose the corresponding uniform margins by $F_j^\leftarrow$. \eqref{eq:cond_sim} indicates that the sole knowledge of $A$ and $\varphi$ and their respective derivatives are needed in order to perform the sixth step of algorithm in @fig-alg_1. For that purpose, $\texttt{cond\_sim}$ method located inside $\textbf{Archimedean}$ and $\textbf{Extreme}$ classes performs algorithm in @fig-alg_1. Then each child of the bivariate $\textbf{Archimedean}$ (resp. $\textbf{Extreme}$) class is thus defined by its generator $\varphi$ (resp. $A$), it's derivative $\varphi'$ (resp. $A'$) and it's inverse $\varphi^\leftarrow$ as emphasized in green in @fig-diagram. Namely, we perform algorithm in @fig-alg_1 for the $\textbf{Archimedean}$ subclasses $\texttt{Frank}$, $\texttt{AMH}$, $\texttt{Clayton}$ (when $\theta < 0$ for the previous three), $\texttt{Nelsen\_9}$, $\texttt{Nelsen\_10}$, $\texttt{Nelsen\_11}$, $\texttt{Nelsen\_12}$, $\texttt{Nelsen\_13}$, $\texttt{Nelsen\_14}$, $\texttt{Nelsen\_15}$ and $\texttt{Nelsen\_22}$. For the $\textbf{Extreme}$ class, such algorithm is performed for the $\texttt{AsyNegLog}$ and $\texttt{AsyMix}$. For other models, faster algorithms are known and thus implemented, we refer to @sec-mv_case for details.
+We now have all the necessary theoretical tools to give details on how the $\textsf{clayton}$ package is designed. The file $\texttt{base.py}$ contains the $\textbf{Multivariate}$ class and the $\texttt{sample}$ method to generate random numbers from $\textbf{X}$ with copula $C$. To do so, we use the inversion method that is to sample from $\textbf{U}$ using algorithm in @fig-alg-1 and we compose the corresponding uniform margins by $F_j^\leftarrow$. \eqref{eq:cond_sim} indicates that the sole knowledge of $A$ and $\varphi$ and their respective derivatives are needed in order to perform the sixth step of algorithm in @fig-alg-1. For that purpose, $\texttt{cond\_sim}$ method located inside $\textbf{Archimedean}$ and $\textbf{Extreme}$ classes performs algorithm in @fig-alg-1. Then each child of the bivariate $\textbf{Archimedean}$ (resp. $\textbf{Extreme}$) class is thus defined by its generator $\varphi$ (resp. $A$), it's derivative $\varphi'$ (resp. $A'$) and it's inverse $\varphi^\leftarrow$ as emphasized in green in @fig-diagram. Namely, we perform algorithm in @fig-alg-1 for the $\textbf{Archimedean}$ subclasses $\texttt{Frank}$, $\texttt{AMH}$, $\texttt{Clayton}$ (when $\theta < 0$ for the previous three), $\texttt{Nelsen\_9}$, $\texttt{Nelsen\_10}$, $\texttt{Nelsen\_11}$, $\texttt{Nelsen\_12}$, $\texttt{Nelsen\_13}$, $\texttt{Nelsen\_14}$, $\texttt{Nelsen\_15}$ and $\texttt{Nelsen\_22}$. For the $\textbf{Extreme}$ class, such algorithm is performed for the $\texttt{AsyNegLog}$ and $\texttt{AsyMix}$. For other models, faster algorithms are known and thus implemented, we refer to @sec-mv_case for details.
 
 The following code illustrates the random vector generation for a bivariate Archimedean copula. By defining the parameter of the copula and the sample's length, the constructor for this copula is available and can be called using the $\texttt{Clayton}$ method, such as:
 
@@ -209,15 +209,15 @@ $$
   \textbf{U} = \left( \varphi^\leftarrow (E_1/V), \dots, \varphi^\leftarrow(E_d /V)\right) \sim C,
 $$ 
 
-with $V \sim F = \mathcal{LS}^{-1}[\varphi^\leftarrow]$ the frailty and $E_1, \dots, E_d$ are distributed i.i.d. according to a standard exponential and independent of $V$. Algorithm in @fig-alg_2 presents a procedure for generating a multivariate sample from an Archimedean copula where the frailty distribution is known. The algorithm takes as an input the length of the sample $n$, as well as the parameter of the copula $\theta$. The output is a $d$-variate sample from the desired copula model, denoted $\{(u_0^{(1)}, \dots, u_{d-1}^{(1)}), \dots, (u_0^{(n)},\dots,u_{d-1}^{(n)})\}$.
+with $V \sim F = \mathcal{LS}^{-1}[\varphi^\leftarrow]$ the frailty and $E_1, \dots, E_d$ are distributed i.i.d. according to a standard exponential and independent of $V$. Algorithm in @fig-alg-2 presents a procedure for generating a multivariate sample from an Archimedean copula where the frailty distribution is known. The algorithm takes as an input the length of the sample $n$, as well as the parameter of the copula $\theta$. The output is a $d$-variate sample from the desired copula model, denoted $\{(u_0^{(1)}, \dots, u_{d-1}^{(1)}), \dots, (u_0^{(n)},\dots,u_{d-1}^{(n)})\}$.
 
-::: {#fig-alg_2}
+::: {#fig-alg-2}
 ![](figures/alg_2.png)
 
 Sampling from Archimedean copula using frailty distribution
 :::
 
-In this framework, we define $\texttt{\_frailty\_sim}$ method defined inside the $\textbf{Archimedean}$ class which performs algorithm in @fig-alg_2. Then, each Archimedean copula is defined by the generator $\varphi$, it's inverse $\varphi^\leftarrow$ and the frailty distribution denoted as $\mathcal{LS}^{-1}[\varphi^\leftarrow]$ as long as we know the frailty. This is the case for $\texttt{Joe}$, $\texttt{Clayton}$, $\texttt{AMH}$ or $\texttt{Frank}$.
+In this framework, we define $\texttt{\_frailty\_sim}$ method defined inside the $\textbf{Archimedean}$ class which performs algorithm in @fig-alg-2. Then, each Archimedean copula is defined by the generator $\varphi$, it's inverse $\varphi^\leftarrow$ and the frailty distribution denoted as $\mathcal{LS}^{-1}[\varphi^\leftarrow]$ as long as we know the frailty. This is the case for $\texttt{Joe}$, $\texttt{Clayton}$, $\texttt{AMH}$ or $\texttt{Frank}$.
 
 For the extreme value case, algorithms have been proposed, as in @stephenson2003simulating (see Algorithms 2.1 and 2.2), who proposes sampling methods for the Gumbel and the asymmetric logistic model. These algorithms are implemented in the $\textsf{clayton}$ package. Note that these algorithms are model-specific, thus the $\texttt{sample\_unimargin}$ method is exceptionally located in the corresponding child of the multivariate $\textbf{Extreme}$ class. Another procedure designed by @10.1093/biomet/asw008 to sample from multivariate extreme value models using extremal functions (see Algorithm 2 in @10.1093/biomet/asw008) is also of prime interest. For the implemented models using this algorithm, namely $\textbf{Hüsler-Reiss}$, $\textbf{tEV}$, $\textbf{Bilogistic}$ and $\textbf{Dirichlet}$ models, a method called $\texttt{\_rextfunc}$ is located inside each classes which allows to generate an observation from the according law of the extremal function.
 
@@ -409,23 +409,23 @@ A direction of improvement for the $\textsf{clayton}$ package is dependence mode
 
 ## Bivariate Archimedean models {#sec-bv_arch}
 
-::: {#fig-bv_arch_1}
+::: {#fig-bv_arch-1}
 ![](figures/app/arch_table_1.png){width=100%}
 :::
 
-::: {#fig-bv_arch_2}
+::: {#fig-bv_arch-2}
 ![](figures/app/arch_table_2.png){width=100%}
 :::
 
 ## Implemented bivariate extreme models {#sec-bv_ext}
 
-::: {#fig-bv_ext}
+::: {#fig-bv-ext}
 ![](figures/app/ext_table.png){width=100%}
 :::
 
 ## Multivariate Archimedean copulae {#sec-mv_arch}
 
-::: {#fig-mv_arch}
+::: {#fig-mv-arch}
 ![](figures/app/arch_mv_table.png){width=100%}
 :::
 

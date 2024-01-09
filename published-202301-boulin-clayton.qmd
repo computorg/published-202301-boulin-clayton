@@ -21,10 +21,11 @@ keywords: [Copulae, Random number generation]
 citation:
   type: article-journal
   container-title: "Computo"
-  publisher: "Société Française de Statistique"
   doi: "10.57750/4szh-t752"
-  url: https://computo.sfds.asso.fr/published-202301-boulin-clayton
+  publisher: "French Statistical Society"
   issn: "2824-7795"
+  pdf-url: "https://computo.sfds.asso.fr/published-202301-boulin-clayton/published-202301-boulin-clayton.pdf"
+  url:  "https://computo.sfds.asso.fr/published-202301-boulin-clayton/"
 google-scholar: true
 bibliography: references.bib
 github-user: computorg

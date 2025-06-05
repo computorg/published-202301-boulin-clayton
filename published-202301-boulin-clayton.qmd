@@ -35,6 +35,7 @@ published: true
 format:
   computo-html: default
   computo-pdf: default
+jupyter: python3
 ---
 
 # Introduction

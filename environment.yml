@@ -1,0 +1,12 @@
+name: clayton
+channels:
+  - conda-forge
+dependencies:
+  - jupyter
+  - numpy
+  - scipy
+  - matplotlib
+  - pandas
+  - seaborn
+  - pip:
+    - clayton

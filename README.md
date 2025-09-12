@@ -1,7 +1,7 @@
 # A Python Package for Sampling from Copulae: clayton
 
 [![build and publish](https://github.com/computorg/published-202301-boulin-clayton/actions/workflows/build.yml/badge.svg)](https://github.com/computorg/published-202301-boulin-clayton/actions/workflows/build.yml)
-[![DOI:10.57750/4szh-t752](https://img.shields.io/badge/DOI-10.57750/4szh--t752-034E79.svg
+[![DOI:10.57750/4szh-t752](https://img.shields.io/badge/DOI-10.57750/4szh--t752-034E79.svg)](https://doi.org/10.57750/4szh-t752)
 [![reviews](https://img.shields.io/badge/review-report-blue)](https://github.com/computorg/published-202301-boulin-clayton/issues?q=is%3Aopen+is%3Aissue+label%3Areview)
 [![SWH](https://archive.softwareheritage.org/badge/origin/https://github.com/computorg/published-202301-boulin-clayton/)](https://archive.softwareheritage.org/browse/origin/?origin_url=https://github.com/computorg/published-202301-boulin-clayton)
 [![Creative Commons License](https://i.creativecommons.org/l/by/4.0/80x15.png)](http://creativecommons.org/licenses/by/4.0/)

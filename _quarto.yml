@@ -1,2 +1,40 @@
 project:
-  title: "published-202301-boulin-clayton"
+  render:
+    - published-202301-boulin-clayton.qmd
+
+title: "A Python Package for Sampling from Copulae: clayton"
+subtitle: "A Python Package for Sampling from Copulae: clayton"
+author:
+  - name: Alexis Boulin
+    url: https://aleboul.github.io/
+    corresponding: true
+    email: aboulin@unice.fr
+    affiliations:
+      - name: Université Côte d'Azur, CNRS, LJAD, France
+        url: https://univ-cotedazur.fr/
+      - name: Inria, Lemon
+        url: https://www.inria.fr/fr/lemon
+date: 2023-01-12
+date-modified: last-modified
+description: |
+  The package $\textsf{clayton}$ is designed to be intuitive, user-friendly, and efficient. It offers a wide range of copula models, including Archimedean, Elliptical, and Extreme. The package is implemented in pure $\textsf{Python}$, making it easy to install and use.
+abstract: >+
+  The package $\textsf{clayton}$ is designed to be intuitive, user-friendly, and efficient. It offers a wide range of copula models, including Archimedean, Elliptical, and Extreme. The package is implemented in pure $\textsf{Python}$, making it easy to install and use. In addition, we provide detailed documentation and examples to help users get started quickly. We also conduct a performance comparison with existing $\textsf{R}$ packages, demonstrating the efficiency of our implementation. The $\textsf{clayton}$ package is a valuable tool for researchers and practitioners working with copulae in $\textsf{Python}$.
+keywords: [Copulae, Random number generation]
+citation:
+  type: article-journal
+  container-title: "Computo"
+  doi: "10.57750/4szh-t752"
+  publisher: "French Statistical Society"
+  issn: "2824-7795"
+google-scholar: true
+bibliography: references.bib
+github-user: computorg
+repo: "published-202301-boulin-clayton"
+draft: false 
+published: true
+format:
+  computo-html: default
+  computo-pdf: default
+jupyter: python3
+

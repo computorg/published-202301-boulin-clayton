@@ -3,7 +3,7 @@ channels:
   - conda-forge
 dependencies:
   - jupyter
-  - numpy
+  - numpy<2
   - scipy
   - matplotlib
   - pandas

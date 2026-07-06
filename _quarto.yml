@@ -1,6 +1,7 @@
 project:
   render:
-    - published-202301-boulin-clayton.qmd
+    - main.qmd
+    - README.qmd
 
 title: "A Python Package for Sampling from Copulae: clayton"
 subtitle: "A Python Package for Sampling from Copulae: clayton"
@@ -29,6 +30,10 @@ citation:
   issn: "2824-7795"
 google-scholar: true
 bibliography: references.bib
+related-identifiers:
+  - relation: IsVersionOf
+    type: arXiv
+    identifier: "2203.17177"
 github-user: computorg
 repo: "published-202301-boulin-clayton"
 status: published

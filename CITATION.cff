@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: If you use or cite this article, please use the metadata provided in 'preferred-citation'.
+title: 'A Python Package for Sampling from Copulae: clayton'
+authors:
+- family-names: Boulin
+  given-names: Alexis
+  orcid: https://orcid.org/0000-0003-0548-2726
+  affiliation: Université Côte d'Azur, CNRS, LJAD, France; Inria, Lemon
+url: https://computo-journal.org/published-202301-boulin-clayton/
+preferred-citation:
+  type: article
+  title: 'A Python Package for Sampling from Copulae: clayton'
+  authors:
+  - family-names: Boulin
+    given-names: Alexis
+    orcid: https://orcid.org/0000-0003-0548-2726
+    affiliation: Université Côte d'Azur, CNRS, LJAD, France; Inria, Lemon
+  journal: Computo
+  issn: 2824-7795
+  url: https://computo-journal.org/published-202301-boulin-clayton/
+  publisher:
+    name: French Statistical Society
+  doi: 10.57750/4szh-t752
+  year: 2023
+doi: 10.57750/4szh-t752
+date-released: '2023-01-01'

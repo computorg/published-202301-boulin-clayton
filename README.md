@@ -2,20 +2,22 @@
 Alexis Boulin
 2023-01-12
 
-*The package $\textsf{clayton}$ is designed to be intuitive,
-user-friendly, and efficient. It offers a wide range of copula models,
-including Archimedean, Elliptical, and Extreme. The package is
-implemented in pure $\textsf{Python}$, making it easy to install and
-use.*
+### Citation
+
+Alexis Boulin (January 2023). A Python Package for Sampling from Copulae: clayton. Computo.
+<https://doi.org/10.57750/4szh-t752>
+
+### Badges
 
 [![build and
 publish](https://github.com/computorg/published-202301-boulin-clayton/actions/workflows/build.yml/badge.svg)](https://github.com/computorg/published-202301-boulin-clayton/actions/workflows/build.yml)
-[![reviews](https://img.shields.io/badge/review-report-blue.png)](https://github.com/computorg/published-202301-boulin-clayton/issues?q=is%3Aopen+is%3Aissue+label%3Areview)
+[![reviews](https://img.shields.io/badge/review-report-blue)](https://github.com/computorg/published-202301-boulin-clayton/issues?q=is%3Aopen+is%3Aissue+label%3Areview)
+[![SWH](https://archive.softwareheritage.org/badge/origin/https://github.com/computorg/published-202301-boulin-clayton)](https://archive.softwareheritage.org/browse/origin/?origin_url=https://github.com/computorg/published-202301-boulin-clayton)
 [![DOI:10.57750/4szh-t752](https://img.shields.io/badge/DOI-10.57750%2F4szh--t752-034E79.svg)](https://doi.org/10.57750/4szh-t752)
 [![Creative Commons
 License](https://i.creativecommons.org/l/by/4.0/80x15.png)](http://creativecommons.org/licenses/by/4.0/)
 
-### Authors
+### Authors’ affiliations
 
 - [Alexis Boulin](https://aleboul.github.io/) (Université Côte d’Azur, CNRS, LJAD, France, Inria, Lemon)
 
